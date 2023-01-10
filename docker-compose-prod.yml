@@ -31,6 +31,8 @@ services:
           HOST_GID: ${HOST_GID}
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}-laravel
+      volumes:
+        - .:/var/www/html:cached
       restart: always
       depends_on:
         - mysql
