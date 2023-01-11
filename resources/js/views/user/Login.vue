@@ -3,14 +3,25 @@
         <div>
             <input v-model="email" type="email" :placeholder="this.errors?.email ?? 'email'"
                    :class="['input input-bordered w-full ', this.errors?.email ? 'placeholder-red-900 border-red-800' : '']">
+            <div v-if="this.errors?.email" class="alert alert-error shadow-lg mt-4">
+                <div  v-for="pass in this.errors?.email">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span >{{ pass }}</span>
+                </div>
+            </div>
         </div>
         <div>
             <input v-model="password" type="password" :placeholder="this.errors?.password ?? 'password'"
-
                    :class="['input input-bordered w-full ', this.errors?.password ? 'placeholder-red-900 border-red-800' : '']">
+            <div v-if="this.errors?.password" class="alert alert-error shadow-lg mt-4">
+                <div  v-for="pass in this.errors?.password">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span >{{ pass }}</span>
+                </div>
+            </div>
         </div>
         <div class="text-right ">
-            <input @click.prevent="login" type="submit" value="login" class="btn btn-primary ">
+            <button @click.prevent="login" type="submit" class="btn btn-primary ">Login</button>
         </div>
     </div>
 </template>

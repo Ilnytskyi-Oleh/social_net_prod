@@ -1,5 +1,5 @@
 <template>
-    <div class="w-96 mx-auto p-4">
+    <div class="max-w-xs mx-auto p-4">
         <div v-if="posts">
             <Post  v-for="post in posts" :key="post.id" :post="post"></Post>
         </div>
@@ -23,10 +23,10 @@ export default {
     },
     methods: {
         getPosts() {
-          axios.get(`/api/posts/feed`)
-              .then(res => {
-                  this.posts = res.data.data;
-              })
+            axios.get(`/api/posts/feed`)
+                .then(res => {
+                    this.posts = res.data.data;
+                })
         },
     }
 }

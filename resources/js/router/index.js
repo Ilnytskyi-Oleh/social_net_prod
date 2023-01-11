@@ -58,6 +58,13 @@ router.beforeEach((to, from, next) => {
         })
     }
 
+
+    if(to.path === '/') {
+        return next({
+            name: 'user.personal'
+        })
+    }
+
     next()
 
 })
